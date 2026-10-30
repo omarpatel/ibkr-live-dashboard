@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IBKR Live Dashboard</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">◆</span> IBKR LIVE
+  </div>
+  <div class="topbar-right">
+    <span id="account" class="account"></span>
+    <span id="mode-chip" class="chip"></span>
+    <span class="conn"><span id="conn-dot" class="dot"></span><span id="conn-text">connecting</span></span>
+    <span id="clock" class="clock"></span>
+  </div>
+</header>
+
+<main>
+  <div id="banner" class="banner hidden">
+    <strong>Waiting for TWS…</strong>
+    <span>Open TWS &rarr; File &rarr; Global Configuration &rarr; API &rarr; Settings:
+    check <em>Enable ActiveX and Socket Clients</em> (and <em>Read-Only API</em>), socket port
+    <code>7496</code>. This page will connect automatically.</span>
+  </div>
+
+  <section class="hero-row">
+    <div class="card hero-card">
+      <div class="stat-label">Daily P&amp;L</div>
+      <div id="hero-pnl" class="hero-value">—</div>
+      <div id="hero-sub" class="hero-sub"></div>
+    </div>
+    <div class="tiles" id="tiles"></div>
+  </section>
+
+  <section class="card chart-card">
+    <div class="card-head">
+      <div class="card-title">Today's P&amp;L</div>
+      <div id="chart-current" class="card-aside"></div>
+    </div>
+    <div id="chart" class="chart"><div class="chart-empty">collecting data…</div></div>
+    <div id="tooltip" class="tooltip hidden"></div>
+  </section>
+
+  <section class="card table-card">
+    <div class="card-head">
+      <div class="card-title">Positions <span id="pos-count" class="count"></span></div>
+      <div id="gross-note" class="card-aside"></div>
+    </div>
+    <div class="table-wrap">
+      <table id="positions">
+        <thead><tr id="pos-head"></tr></thead>
+        <tbody id="pos-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span id="foot-status"></span>
+    <span id="foot-updated"></span>
+  </footer>
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
